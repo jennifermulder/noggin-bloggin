@@ -1,0 +1,28 @@
+{
+  "name": "noggin-bloggin",
+  "version": "1.0.0",
+  "description": "![](assets/images/noggin-bloggin.jpg)",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jennifermulder/noggin-bloggin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jennifermulder/noggin-bloggin/issues"
+  },
+  "homepage": "https://github.com/jennifermulder/noggin-bloggin#readme"
+}
