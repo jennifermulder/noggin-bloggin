@@ -70,7 +70,7 @@ router.get('/:id', (req, res) => {
   (username, email, password)
 VALUES
   ("Lernantino", "lernantino@gmail.com", "password1234"); */
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
     //use key/value pairs that are defined in the User model
