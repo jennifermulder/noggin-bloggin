@@ -1,3 +1,28 @@
+// function idleLogout() {
+//   var t;
+//   window.onload = resetTimer;
+//   window.onmousemove = resetTimer;
+//   window.onmousedown = resetTimer;  // catches touchscreen presses as well      
+//   window.ontouchstart = resetTimer; // catches touchscreen swipes as well 
+//   window.onclick = resetTimer;      // catches touchpad clicks as well
+//   window.onkeypress = resetTimer;
+//   window.addEventListener('scroll', resetTimer, true); // improved; see comments
+
+//   function logoutSession() {
+//     // your function for too long inactivity goes here
+//     alert("You are now logged out.")
+//     document.location.replace('/logout');
+//   }
+
+//   function resetTimer() {
+//     clearTimeout(t);
+//     t = setTimeout(logoutSession, 10000);  // time is in milliseconds
+//   }
+// }
+
+
+
+
 async function signupFormHandler(event) {
   event.preventDefault();
 
@@ -19,7 +44,7 @@ async function signupFormHandler(event) {
     });
     // check the response status
     if (response.ok) {
-      console.log('success');
+      document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
@@ -45,6 +70,8 @@ async function loginFormHandler(event) {
     if (response.ok) {
       //when the user logs in they are automatically redirected
       document.location.replace('/dashboard');
+      debugger
+      idleLogout();
     } else {
       alert(response.statusText);
     }
