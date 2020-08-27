@@ -7,7 +7,6 @@ const withAuth = require('../../utils/auth');
 
 // get all posts
 router.get('/', (req, res) => {
-  console.log("/api/posts route is hit ");
   Post.findAll({
     order: [['created_at', 'DESC']],
     attributes: [
@@ -35,7 +34,6 @@ router.get('/', (req, res) => {
   })
     //return database in json
     .then(dbPostData => {
-      console.log("dbPostData: ", dbPostData);
       res.json(dbPostData);
     })
     .catch(err => {
@@ -100,17 +98,8 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-// PUT /api/posts/upvote ***because votes are made on posts 
+// PUT /api/posts/upvote ***votes are made on posts 
 router.put('/upvote', withAuth, (req, res) => {
-  // custom static method created in models/Post.js. Pass in Vote model as argument
-  // Post.upvote(req.body, { Vote })
-  //   // send back data from the database that has been modified
-  //   .then(updatedPostData => res.json(updatedPostData))
-  //   .catch(err => {
-  //     console.log(err);
-  //     res.status(400).json(err);
-  //   });
-
   //received from front end login (session token w/ user id info), session object sent back to front-end from the server (no memory) 
   if (req.session) {
     // pass session id along with all destructured properties on req.body

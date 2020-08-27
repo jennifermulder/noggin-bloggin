@@ -4,7 +4,7 @@ const sequelize = require('../config/connection');
 
 const bcrypt = require('bcrypt');
 
-// create our User model
+// create User model
 //user inherits functionality of Model class
 class User extends Model {
   // set up method to run on instance data (per user) to check password

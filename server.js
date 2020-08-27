@@ -15,14 +15,14 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-//to use express-session and sequalize-store
+//to use express-session and sequelize-store
 //creates session
 const session = require('express-session');
 //connects session to database
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: 'Secret',
   cookie: {},
   resave: false,
   saveUninitialized: true,

@@ -4,7 +4,6 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
-  console.log("This is the sesson from home route", req.session);
   //for response, specify which template to use(homepage.handlebars)
   Post.findAll({
     attributes: [
@@ -30,7 +29,6 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbPostData => {
-      console.log(dbPostData[0]);
       //loop over and map each Sequelize object into a serialized version of itself, saving the results in a new posts array
       const posts = dbPostData.map(post => post.get({ plain: true }));
       // pass a single post object into the homepage template
@@ -53,23 +51,6 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
-
-// //To test
-// router.get('/post/:id', (req, res) => {
-//   const post = {
-//     id: 1,
-//     post_url: 'https://handlebarsjs.com/guide/',
-//     title: 'Handlebars Docs',
-//     created_at: new Date(),
-//     vote_count: 10,
-//     comments: [{}, {}],
-//     user: {
-//       username: 'test_user'
-//     }
-//   };
-
-//   res.render('single-post', { post });
-// });
 
 router.get('/post/:id', (req, res) => {
   Post.findOne({

@@ -4,11 +4,6 @@ const { Post, User, Comment } = require('../models');
 //importing authguard
 const withAuth = require('../utils/auth');
 
-// //cannot access dashboard without being (loggedIn = true)
-// router.get('/', (req, res) => {
-//   res.render('dashboard', { loggedIn: true });
-// });
-
 //cannot access dashboard without being logged in with a user name. imported withAuth function
 router.get('/', withAuth, (req, res) => {
   Post.findAll({
