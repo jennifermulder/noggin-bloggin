@@ -17,10 +17,8 @@ async function signupFormHandler(event) {
       }),
       headers: { 'Content-Type': 'application/json' }
     });
-    console.log("This is the response before the if", response)
     // check the response status
     if (response.ok) {
-      console.log("This is the response after the if", response)
       document.location.replace('/dashboard');
     } else {
       alert(response.statusText);

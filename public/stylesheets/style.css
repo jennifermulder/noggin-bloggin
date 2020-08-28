@@ -6,15 +6,18 @@ body, html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #333;
 }
 
+/* used */
 a {
   text-decoration: none;
-  color: #225ca3;
+  color:  purple;
   font-weight: bold;
   transition: color .1s;
+  font-size: 20px;
+  margin-left: 16px;
 }
 
 a:hover {
@@ -22,7 +25,7 @@ a:hover {
 }
 
 button {
-  background-color: #225ca3;
+  background-color: purple;
   border: 0;
   padding: 1%;
   color: white;
@@ -74,21 +77,31 @@ form label {
   flex-direction: column;
 }
 
+/* used */
 header {
   border-bottom: 1px solid #ccc;
-  display: flex;
+  background-color: lightgray;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1%;
+  padding: 10px;
 }
 
 header h1 {
   font-size: 1em;
 }
 
+header span {
+  margin-left: 50px;
+  font-size: x-large;
+  text-decoration: none;
+  color: purple;
+  font-weight: bold;
+}
+
 main {
   flex: 1;
   padding: 2% 4%;
+  background-color: whitesmoke;
 }
 
 .btn-no-style {
@@ -97,8 +110,9 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
-  font-size: 100%;
+  color:  purple;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
   transition: color .1s;
   margin-left: 16px;
@@ -122,24 +136,31 @@ main {
   line-height: 150%;
 }
 
+.title {
+  border-color: black;
+  border-style: solid;
+  background-color: blanchedalmond;
+}
+
 .post .title span {
-  font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
+  font-size: 100%;
+  color: black;
+  margin-left: 16px;
+  margin-bottom: 10px;
+}
+
+.post .title h3{
+  margin: 0;
+}
+
+.post .title h5{
+  margin-left: 32px;
+  margin-top: 0px;
 }
 
 .edit-link {
   display: block;
-  margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
+  margin: -1.5% 0 5% 0;
 }
 
 .comment-form {
@@ -166,6 +187,12 @@ main {
 }
 
 .edit-post-form {
+  margin-bottom: 5%;
+  display: inline-block;
+  
+}
+
+.edit-post-form input {
   margin-bottom: 5%;
 }
 

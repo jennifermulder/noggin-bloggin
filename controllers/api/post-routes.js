@@ -136,8 +136,10 @@ router.delete('/:id', withAuth, (req, res) => {
         return;
       }
       res.json(dbPostData);
+      console.log("this is before the catch", dbPostData)
     })
     .catch(err => {
+
       console.log(err);
       res.status(500).json(err);
     });
