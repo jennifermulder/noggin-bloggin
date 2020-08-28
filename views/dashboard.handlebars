@@ -8,8 +8,13 @@
       <input type="text" id="post-title" name="post-title" />
     </div>
     <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
+      {{!-- <label for="post-url">Link</label> --}}
+      <label for="post-text">Content</label>
+      <div>
+        <textarea name="post-body"></textarea>
+      </div>
+      {{!-- <input type="text-area" id="post-text" name="post-text" /> --}}
+      {{!-- <input id="post-url" name="post-url" /> --}}
     </div>
     <button type="submit" class="btn">Create</button>
   </form>

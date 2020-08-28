@@ -3,14 +3,16 @@ async function newFormHandler(event) {
 
   // on form submission, grab input data from title and (link) URL fields
   const title = document.querySelector('input[name="post-title"]').value;
-  const post_url = document.querySelector('input[name="post-url"]').value;
+  // const post_url = document.querySelector('input[name="post-url"]').value;
+  const post_text = document.querySelector('textarea[name="post-body"]').value;
 
   // send them with a POST request to /api/posts
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
       title,
-      post_url
+      // post_url
+      post_text
     }),
     headers: {
       'Content-Type': 'application/json'

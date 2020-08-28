@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 //include user model
-const { Post, User, Vote, Comment } = require('../../models');
+const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -11,10 +11,9 @@ router.get('/', (req, res) => {
     order: [['created_at', 'DESC']],
     attributes: [
       'id',
-      'post_url',
+      'post_text',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       // include the Comment model here:
@@ -50,10 +49,9 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      'post_text',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -86,9 +84,10 @@ router.get('/:id', (req, res) => {
 //create a post
 router.post('/', withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+  console.log(req);
   Post.create({
     title: req.body.title,
-    post_url: req.body.post_url,
+    post_text: req.body.post_text,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -98,26 +97,12 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-// PUT /api/posts/upvote ***votes are made on posts 
-router.put('/upvote', withAuth, (req, res) => {
-  //received from front end login (session token w/ user id info), session object sent back to front-end from the server (no memory) 
-  if (req.session) {
-    // pass session id along with all destructured properties on req.body
-    //create new record in vote table (upvote)
-    Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-      .then(updatedVoteData => res.json(updatedVoteData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  }
-});
-
 //find id, alter instance of title associated with id
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_text: req.body.text
     },
     {
       where: {

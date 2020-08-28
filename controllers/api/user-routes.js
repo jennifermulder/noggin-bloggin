@@ -1,7 +1,7 @@
 //routes to work with User model to perform CRUD operations
 const router = require('express').Router();
 //destructure user, post, and vote from models that were imported
-const { User, Post, Vote, Comment } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET accessible at: /api/users
@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'post_url', 'created_at']
+        attributes: ['id', 'title', 'post_text', 'created_at']
       },
       // Can see on which posts the user commented
       {
@@ -44,12 +44,6 @@ router.get('/:id', (req, res) => {
           attributes: ['title']
         }
       },
-      {
-        model: Post,
-        attributes: ['title'],
-        through: Vote,
-        as: 'voted_posts'
-      }
     ]
   })
     .then(dbUserData => {

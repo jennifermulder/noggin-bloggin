@@ -17,8 +17,10 @@ async function signupFormHandler(event) {
       }),
       headers: { 'Content-Type': 'application/json' }
     });
+    console.log("This is the response before the if", response)
     // check the response status
     if (response.ok) {
+      console.log("This is the response after the if", response)
       document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
@@ -53,6 +55,8 @@ async function loginFormHandler(event) {
   }
 }
 
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+var loginform = document.querySelector('.login-form')
+if (loginform) loginform.addEventListener('submit', loginFormHandler);
 
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+var signupform = document.querySelector('.signup-form')
+if (signupform) signupform.addEventListener('submit', signupFormHandler);
