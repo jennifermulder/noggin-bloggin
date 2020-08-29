@@ -1,7 +1,7 @@
 # just-tech-news
 
 ![](public/assets/images/noggin-bloggin.jpg)
-![](public/images/noggin-bloggin1.jpg)
+![](public/assets/images/noggin-bloggin1.jpg)
 
 ## Purpose
 To provide the user with a CMS-style blog site where they can publish articles, blog posts, and thoughts/ opinions
