@@ -83,7 +83,6 @@ router.get('/:id', (req, res) => {
 
 //create a post
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   console.log(req);
   Post.create({
     title: req.body.title,
@@ -136,7 +135,6 @@ router.delete('/:id', withAuth, (req, res) => {
         return;
       }
       res.json(dbPostData);
-      console.log("this is before the catch", dbPostData)
     })
     .catch(err => {
 

@@ -1,9 +1,8 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  // on form submission, grab input data from title and (link) URL fields
+  // on form submission, grab input data from title and text fields
   const title = document.querySelector('input[name="post-title"]').value;
-  // const post_url = document.querySelector('input[name="post-url"]').value;
   const post_text = document.querySelector('textarea[name="post-body"]').value;
 
   // send them with a POST request to /api/posts

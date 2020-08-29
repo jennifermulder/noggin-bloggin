@@ -12,7 +12,6 @@ User.hasMany(Post, {
 //user only belongs to post
 Post.belongsTo(User, {
   foreignKey: "user_id",
-  onDelete: "cascade",
 });
 
 //a comment can only have one user
