@@ -1,4 +1,4 @@
-# just-tech-news
+# Noggin Bloggin
 
 ![](public/assets/images/noggin-bloggin.jpg)
 ![](public/assets/images/noggin-bloggin1.jpg)
